@@ -1,39 +1,46 @@
 package com.systempro.stock.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Category implements Serializable{
+public class Product implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@Column(name = "codigo_barras", nullable = true)
+	private String barCode;
 	@Column(nullable = true)
 	private String name;
+	@Column(nullable = true)
+	private Double price; 
+	@Column(nullable = true)
+	private Integer amount;
 	
-	@JsonIgnore
-	@OneToMany(mappedBy = "category")
-	private List<Product> products = new ArrayList<>();
+	@ManyToOne
+	@JoinColumn(name = "category_id")
+	private Category category;
 	
-	public Category() {
+	public Product() {
 	}
 
-	public Category(Integer id, String name) {
+	public Product(Integer id, String barCode, String name, Double price, Integer amount, Category category) {
 		super();
 		this.id = id;
+		this.barCode = barCode;
 		this.name = name;
+		this.price = price;
+		this.amount = amount;
+		this.category = category;
 	}
 
 	public Integer getId() {
@@ -44,6 +51,14 @@ public class Category implements Serializable{
 		this.id = id;
 	}
 
+	public String getBarCode() {
+		return barCode;
+	}
+
+	public void setBarCode(String barCode) {
+		this.barCode = barCode;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -52,8 +67,28 @@ public class Category implements Serializable{
 		this.name = name;
 	}
 
-	public List<Product> getProducts() {
-		return products;
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public Integer getAmount() {
+		return amount;
+	}
+
+	public void setAmount(Integer amount) {
+		this.amount = amount;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	@Override
@@ -72,7 +107,7 @@ public class Category implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Category other = (Category) obj;
+		Product other = (Product) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
