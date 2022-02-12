@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.systempro.stock.entities.Category;
 import com.systempro.stock.entities.dto.CategoryDTO;
-import com.systempro.stock.repositoryes.CategoryRepeository;
+import com.systempro.stock.repositories.CategoryRepeository;
 import com.systempro.stock.services.exceptions.ObjectNotFoundException;
 
 @Service

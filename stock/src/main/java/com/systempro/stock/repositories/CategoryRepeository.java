@@ -1,4 +1,4 @@
-package com.systempro.stock.repositoryes;
+package com.systempro.stock.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
