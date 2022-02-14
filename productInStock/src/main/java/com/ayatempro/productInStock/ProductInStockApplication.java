@@ -1,13 +1,13 @@
-package com.systempro.product;
+package com.ayatempro.productInStock;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProductApplication {
+public class ProductInStockApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProductApplication.class, args);
+		SpringApplication.run(ProductInStockApplication.class, args);
 	}
 
 }
