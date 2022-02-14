@@ -29,7 +29,6 @@ public class ItemPedido implements Serializable {
 		this.price = product.getPrice();
 		this.amount = amount;
 	}
-
 	@JsonIgnore
 	public Pedido getPedido() {
 		return id.getPedido();

@@ -44,6 +44,8 @@ public class PedidoService {
 			ip.setProduct(productService.findById(ip.getProduct().getId()));
 			ip.setPrice(ip.getProduct().getPrice());
 			ip.setAmount(ip.getAmount());
+			ip.getProduct().removeAmout(ip.getAmount());
+			ip.setPedido(obj);
 		}
 		itemPedidoRepository.saveAll(obj.getItens());
 		return obj;

@@ -90,6 +90,10 @@ public class Product implements Serializable{
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+	
+	public void removeAmout(Integer amount) {
+		this.amount -= amount;
+	}
 
 	@Override
 	public int hashCode() {
