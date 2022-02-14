@@ -8,11 +8,11 @@
 		<version>2.7.0-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.ayatempro</groupId>
-	<artifactId>productInStock</artifactId>
+	<groupId>com.systempro</groupId>
+	<artifactId>product</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>productInStock</name>
-	<description>Api stock of control</description>
+	<name>product</name>
+	<description>Api - Product input control</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
