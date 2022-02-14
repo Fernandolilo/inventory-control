@@ -1,13 +1,20 @@
 package com.ayatempro.productInStock;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProductInStockApplication {
+public class ProductInStockApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProductInStockApplication.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
