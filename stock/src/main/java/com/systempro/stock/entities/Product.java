@@ -10,6 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.modelmapper.ModelMapper;
+
+import com.systempro.stock.entities.dto.ProductDTO;
+
 @Entity
 public class Product implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -41,6 +45,10 @@ public class Product implements Serializable{
 		this.price = price;
 		this.amount = amount;
 		this.category = category;
+	}
+	
+	public static Product create(ProductDTO productDTO) {
+		return new ModelMapper().map(productDTO, Product.class);
 	}
 
 	public Integer getId() {

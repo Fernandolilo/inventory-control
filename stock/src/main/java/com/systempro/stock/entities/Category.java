@@ -11,22 +11,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.modelmapper.ModelMapper;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.systempro.stock.entities.dto.CategoryDTO;
 
 @Entity
-public class Category implements Serializable{
+public class Category implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@Column(nullable = true)
 	private String name;
-	
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "category")
 	private List<Product> products = new ArrayList<>();
-	
+
 	public Category() {
 	}
 
@@ -34,6 +37,10 @@ public class Category implements Serializable{
 		super();
 		this.id = id;
 		this.name = name;
+	}
+
+	public static Category create(CategoryDTO categoryDTO) {
+		return new ModelMapper().map(categoryDTO, Category.class);
 	}
 
 	public Integer getId() {
